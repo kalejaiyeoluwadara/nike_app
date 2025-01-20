@@ -1,8 +1,8 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:ui/navtest/nav_page.dart';
 import 'package:ui/components/icon.dart';
 import 'package:ui/pages/favorites_page.dart';
+import 'package:ui/pages/home_page.dart';
 
 class NavBarHandler extends StatefulWidget {
   const NavBarHandler({super.key});

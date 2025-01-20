@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui/navtest/api_page.dart';
 import 'package:ui/pages/favorites_page.dart';
 import 'package:ui/pages/home_page.dart';
 import 'package:ui/pages/nav_bar_handler.dart';
@@ -18,7 +19,7 @@ class MainApp extends StatelessWidget {
         routes: {
           '/home_page': (context) => const HomePage(),
           '/favorites_shoe_page': (context) => const FavoritesPage(),
-          '//nav_bar_handler': (context) => const NavBarHandler(),
+          '/nav_bar_handler': (context) => const NavBarHandler(),
         },
         home: const SplashScreen());
   }

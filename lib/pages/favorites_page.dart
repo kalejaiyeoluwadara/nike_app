@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui/components/bottom_nav.dart';
 import 'package:ui/components/icon.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:ui/components/shoe_card.dart';
 
 class FavoritesPage extends StatelessWidget {
   const FavoritesPage({super.key});

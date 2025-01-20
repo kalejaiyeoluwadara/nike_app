@@ -1,3 +1,3 @@
-# ui
+# Minimal Nike App
 
-A new Flutter project.
+A minimal Nike app
