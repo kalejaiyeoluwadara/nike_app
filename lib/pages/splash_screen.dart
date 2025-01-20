@@ -8,7 +8,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context, '/home_page');
+        Navigator.pushNamed(context, '/nav_bar_handler');
       },
       child: const Scaffold(
         backgroundColor: Color(0xFF0D6EFD),

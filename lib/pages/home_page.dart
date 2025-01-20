@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:ui/components/bottom_nav.dart';
 import 'package:ui/components/icon.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ui/components/shoe_card.dart';
@@ -288,49 +287,48 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ],
                         ),
-                        // Empty space to position the shoe in the stack
                         const SizedBox(width: 100),
                       ],
                     ),
                   ),
                   Positioned(
-                    left: 10, // Adjust position as needed
-                    bottom: 9, // Allow it to overflow upwards
+                    left: 10,
+                    bottom: 9,
                     child: Image.asset(
                       'assets/images/star.png',
                       fit: BoxFit.contain,
                     ),
                   ),
                   Positioned(
-                    left: 160, // Adjust position as needed
-                    top: 10, // Allow it to overflow upwards
+                    left: 160,
+                    top: 10,
                     child: Image.asset(
                       'assets/images/star.png',
                     ),
                   ),
                   Positioned(
-                    right: 10, // Adjust position as needed
-                    bottom: 10, // Allow it to overflow upwards
+                    right: 10,
+                    bottom: 10,
                     child: Image.asset(
                       'assets/images/star.png',
                       fit: BoxFit.contain,
                     ),
                   ),
                   Positioned(
-                    right: 130, // Adjust position as needed
-                    top: 20, // Allow it to overflow upwards
+                    right: 130,
+                    top: 20,
                     child: Image.asset(
                       'assets/images/new.png',
                       fit: BoxFit.contain,
                     ),
                   ),
-                  // Shoe image overflowing
+
                   Positioned(
-                    right: -10, // Adjust position as needed
-                    top: -40, // Allow it to overflow upwards
+                    right: -10,
+                    top: -40,
                     child: Image.asset(
                       'assets/images/shoe4.png',
-                      width: 150, // Adjust image size
+                      width: 150,
                       height: 150,
                       fit: BoxFit.contain,
                     ),
@@ -341,7 +339,6 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: const BottomNav(),
     );
   }
 }

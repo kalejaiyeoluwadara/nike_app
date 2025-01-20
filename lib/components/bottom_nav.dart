@@ -1,18 +1,19 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:ui/navtest/nav_page.dart';
 import 'package:ui/components/icon.dart';
+import 'package:ui/pages/favorites_page.dart';
 
-class BottomNav extends StatefulWidget {
-  const BottomNav({Key? key}) : super(key: key);
+class NavBarHandler extends StatefulWidget {
+  const NavBarHandler({super.key});
 
   @override
-  State<BottomNav> createState() => _BottomNavState();
+  State<NavBarHandler> createState() => _NavBarHandlerState();
 }
 
-class _BottomNavState extends State<BottomNav> {
-  int _activeIndex = 0; // Track the active index
+class _NavBarHandlerState extends State<NavBarHandler> {
+  int _currentIndex = 0;
 
-  // Array of image asset paths for the icons
   final List<String> iconPaths = [
     'assets/images/home.svg',
     'assets/images/heart.svg',
@@ -21,35 +22,48 @@ class _BottomNavState extends State<BottomNav> {
     'assets/images/person.svg',
   ];
 
+  final List<Widget> _pages = [
+    const HomePage(),
+    const FavoritesPage(),
+    const FavoritesPage(), // Replace with actual pages for these indices
+    const FavoritesPage(),
+    const FavoritesPage(),
+  ];
+
+  void _onTabTapped(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return CurvedNavigationBar(
-      backgroundColor: Colors.transparent,
-      animationDuration: const Duration(milliseconds: 400),
-      color: Colors.grey.shade200,
-      buttonBackgroundColor: Colors.transparent,
-      index: _activeIndex,
-      items: List.generate(iconPaths.length, (index) {
-        final isActive = _activeIndex == index;
-        return Container(
-          decoration: BoxDecoration(
-            color: isActive
-                ? const Color.fromRGBO(13, 110, 253, 1)
-                : Colors.transparent,
-            shape: BoxShape.circle,
-          ),
-          padding: const EdgeInsets.all(15),
-          child: CustomIcon(
-            assetName: iconPaths[index],
-            color: isActive ? Colors.white : Colors.black,
-          ),
-        );
-      }),
-      onTap: (index) {
-        setState(() {
-          _activeIndex = index;
-        });
-      },
+    return Scaffold(
+      body: _pages[_currentIndex],
+      bottomNavigationBar: CurvedNavigationBar(
+        backgroundColor: Colors.transparent,
+        animationDuration: const Duration(milliseconds: 400),
+        color: Colors.white,
+        buttonBackgroundColor: Colors.transparent,
+        index: _currentIndex,
+        items: List.generate(iconPaths.length, (index) {
+          final isActive = _currentIndex == index;
+          return Container(
+            decoration: BoxDecoration(
+              color: isActive
+                  ? const Color.fromRGBO(13, 110, 253, 1)
+                  : Colors.transparent,
+              shape: BoxShape.circle,
+            ),
+            padding: const EdgeInsets.all(15),
+            child: CustomIcon(
+              assetName: iconPaths[index],
+              color: isActive ? Colors.white : Colors.black,
+            ),
+          );
+        }),
+        onTap: _onTabTapped,
+      ),
     );
   }
 }
