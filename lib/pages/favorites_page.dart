@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ui/components/fave_shoe_card.dart';
 import 'package:ui/components/icon.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ui/components/shoe_card.dart';
 
 class FavoritesPage extends StatelessWidget {
   const FavoritesPage({super.key});
@@ -42,6 +44,57 @@ class FavoritesPage extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 30, left: 10),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 240,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FaveShoeCard(
+                    shoeName: 'Nike Air Max',
+                    price: '752.00',
+                    imageUrl: 'assets/images/shoe5.png',
+                    onAddClick: () {},
+                  ),
+                  FaveShoeCard(
+                    shoeName: 'Nike Jordan',
+                    price: '302.00',
+                    imageUrl: 'assets/images/shoe4.png',
+                    onAddClick: () {},
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              height: 240,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FaveShoeCard(
+                    shoeName: 'Nike Jordan',
+                    price: '402.00',
+                    imageUrl: 'assets/images/shoe.png',
+                    onAddClick: () {},
+                  ),
+                  FaveShoeCard(
+                    shoeName: 'Nike Club Max',
+                    price: '402.00',
+                    imageUrl: 'assets/images/shoe2.png',
+                    onAddClick: () {},
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

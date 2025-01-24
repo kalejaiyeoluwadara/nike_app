@@ -15,7 +15,7 @@ class _NavBarHandlerState extends State<NavBarHandler> {
   final List<Widget> _pages = [
     const HomePage(),
     const FavoritesPage(),
-    const Center(child: Text('Bag Page')), // Placeholder for other pages
+    const Center(child: Text('Bag Page')),
     const Center(child: Text('Notifications Page')),
     const Center(child: Text('Profile Page')),
   ];
