@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class FaveShoeCard extends StatefulWidget {
+class FaveShoeCard extends StatelessWidget {
   final String shoeName;
   final String price;
   final String imageUrl;
@@ -16,157 +16,76 @@ class FaveShoeCard extends StatefulWidget {
   });
 
   @override
-  _FaveShoeCardState createState() => _FaveShoeCardState();
-}
-
-class _FaveShoeCardState extends State<FaveShoeCard> {
-  bool isLiked = false;
-
-  void toggleLike() {
-    setState(() {
-      isLiked = !isLiked;
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, '/shoe_page');
-      },
-      child: Expanded(
-        child: Container(
-          margin: const EdgeInsets.only(right: 10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 2.0, right: 8, top: 12),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    GestureDetector(
-                      onTap: toggleLike,
-                      child: Container(
-                        padding: const EdgeInsets.all(6),
-                        decoration: BoxDecoration(
-                          color: Colors.grey.shade200,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Icon(
-                          isLiked ? Icons.favorite : Icons.favorite_border,
-                          color: isLiked ? Colors.red.shade300 : Colors.grey,
-                        ),
-                      ),
-                    ),
-                  ],
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Flexible(
+            child: Container(
+              height: 120, // Fixed height for the image
+              width: double.infinity, // Ensure the container spans full width
+              decoration: BoxDecoration(
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(15)),
+              ),
+              child: Center(
+                child: Image.asset(
+                  imageUrl,
+                  height: 100, // Set height for the shoe image
+                  width: 120, // Added width for the shoe image
+                  fit: BoxFit.contain, // Ensures the image scales properly
                 ),
               ),
-              Row(
-                children: [
-                  Container(
-                    margin: const EdgeInsets.only(top: 0, bottom: 0, left: 12),
-                    child: Image.asset(
-                      widget.imageUrl,
-                      height: 90,
-                      width: 130,
-                    ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'BEST SELLER',
+                  style: GoogleFonts.raleway(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.blue.shade800,
                   ),
-                ],
-              ),
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'BEST SELLER',
-                          style: GoogleFonts.poppins(
-                            fontSize: 12,
-                            color: const Color(0xFF0D6EFD),
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        Text(
-                          widget.shoeName,
-                          style: GoogleFonts.poppins(
-                            fontSize: 16,
-                            color: Colors.grey.shade700,
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ],
-                    ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+                Text(
+                  shoeName,
+                  style: GoogleFonts.raleway(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black87,
                   ),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: Row(
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
+                ),
+                const SizedBox(height: 8),
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      '\$${widget.price}',
-                      style: GoogleFonts.poppins(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
+                    const Text('\$89.9'),
+                    IconButton(
+                      icon: const Icon(Icons.favorite),
+                      color: Colors.red.shade300,
+                      onPressed: () {
+                        // Handle like action
+                      },
                     ),
-                    Row(
-                      children: [
-                        Container(
-                          height: 16,
-                          width: 16,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.grey[300],
-                          ),
-                          child: Center(
-                            child: Container(
-                              height: 10,
-                              width: 10,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.blue[700],
-                              ),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 2,
-                        ),
-                        Container(
-                          height: 16,
-                          width: 16,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Colors.grey[300],
-                          ),
-                          child: Center(
-                            child: Container(
-                              height: 10,
-                              width: 10,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.red[700],
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    )
                   ],
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

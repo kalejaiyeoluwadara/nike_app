@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ui/pages/favorites_page.dart';
 import 'package:ui/pages/home_page.dart';
+import 'package:ui/pages/notifications_page.dart';
+import 'package:ui/pages/profile_page.dart';
 
 class NavBarHandler extends StatefulWidget {
   const NavBarHandler({Key? key}) : super(key: key);
@@ -16,8 +18,8 @@ class _NavBarHandlerState extends State<NavBarHandler> {
     const HomePage(),
     const FavoritesPage(),
     const Center(child: Text('Bag Page')),
-    const Center(child: Text('Notifications Page')),
-    const Center(child: Text('Profile Page')),
+    const NotificationsPage(),
+    ProfilePage()
   ];
 
   void _onTabTapped(int index) {

@@ -5,9 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:ui/components/icon.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Sneakershop extends StatelessWidget {
+class Sneakershop extends StatefulWidget {
   const Sneakershop({super.key});
 
+  @override
+  State<Sneakershop> createState() => _SneakershopState();
+}
+
+class _SneakershopState extends State<Sneakershop> {
+  bool isExpanded = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,19 +21,18 @@ class Sneakershop extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        leading: GestureDetector(
-          onTap: () => Navigator.pop(context),
-          child: Container(
-            margin: const EdgeInsets.only(left: 12),
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
-            ),
-            child: IconButton(
-              iconSize: 30,
-              onPressed: () {},
-              icon: const Icon(Icons.chevron_left),
-            ),
+        leading: Container(
+          margin: const EdgeInsets.only(left: 12),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
+          ),
+          child: IconButton(
+            iconSize: 30,
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: const Icon(Icons.chevron_left),
           ),
         ),
         title: Stack(
@@ -154,7 +159,6 @@ class Sneakershop extends StatelessWidget {
             ),
             StatefulBuilder(
               builder: (BuildContext context, StateSetter setState) {
-                bool isExpanded = false;
                 return Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: Column(
@@ -193,6 +197,61 @@ class Sneakershop extends StatelessWidget {
                 );
               },
             ),
+            const SizedBox(height: 30),
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 30),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    child: Container(
+                      padding: EdgeInsets.all(6),
+                      decoration: BoxDecoration(
+                        color: Colors.grey.shade200,
+                        shape: BoxShape.circle,
+                      ),
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: const CustomIcon(
+                            height: 35,
+                            width: 35,
+                            assetName: 'assets/images/heart.svg',
+                            color: Colors.black,
+                          )),
+                    ),
+                  ),
+                  const SizedBox(width: 40),
+                  Container(
+                    height: 60,
+                    width: 238,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8),
+                      color: const Color(0xFF0D6EFD),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const CustomIcon(
+                          assetName: 'assets/images/bag.svg',
+                          color: Colors.white,
+                          height: 28,
+                        ),
+                        const SizedBox(width: 15),
+                        Text(
+                          'Add To Cart',
+                          style: GoogleFonts.raleway(
+                            fontSize: 20,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
           ],
         ),
       ),
