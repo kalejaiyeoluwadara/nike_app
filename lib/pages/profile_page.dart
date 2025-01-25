@@ -13,6 +13,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text(
           'Profile',
           style: GoogleFonts.raleway(
@@ -41,39 +42,38 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: [
-            const SizedBox(height: 20),
-            // Profile Image Section
-            const CircleAvatar(
-              radius: 50,
-              backgroundImage: AssetImage('assets/images/profile.jpg'),
-            ),
-            const SizedBox(height: 20),
-            // Name Input
-            buildInputField(
-              label: 'Name',
-              initialValue: 'John Doe',
-              isEditable: isEditable,
-            ),
-            const SizedBox(height: 20),
-            // Email Input
-            buildInputField(
-              label: 'Email',
-              initialValue: 'johndoe@example.com',
-              isEditable: isEditable,
-            ),
-            const SizedBox(height: 20),
-            // Password Input
-            buildInputField(
-              label: 'Password',
-              initialValue: '••••••••',
-              isEditable: isEditable,
-              obscureText: true,
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              // Profile Image Section
+              const CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage('assets/images/profile.jpg'),
+              ),
+              const SizedBox(height: 20),
+              // Name Input
+              buildInputField(
+                label: 'Name',
+                isEditable: isEditable,
+              ),
+              const SizedBox(height: 20),
+              // Email Input
+              buildInputField(
+                label: 'Email',
+                isEditable: isEditable,
+              ),
+              const SizedBox(height: 20),
+              // Password Input
+              buildInputField(
+                label: 'Password',
+                isEditable: isEditable,
+                obscureText: true,
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -81,7 +81,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
   Widget buildInputField({
     required String label,
-    required String initialValue,
     required bool isEditable,
     bool obscureText = false,
   }) {
@@ -97,18 +96,21 @@ class _ProfilePageState extends State<ProfilePage> {
         ),
         const SizedBox(height: 6),
         TextField(
-          controller: TextEditingController(text: initialValue),
+          controller: TextEditingController(text: ''),
           obscureText: obscureText,
           enabled: isEditable,
           decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.grey.shade400,
-            border: InputBorder.none,
+            fillColor: Colors.grey.shade200,
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12),
+              borderSide: BorderSide.none,
+            ),
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 12, horizontal: 12),
           ),
           style: GoogleFonts.raleway(
-            fontSize: 14,
+            fontSize: 20,
             color: Colors.black87,
           ),
         ),
