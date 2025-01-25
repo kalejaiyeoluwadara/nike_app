@@ -46,14 +46,14 @@ class FavoritesPage extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 30, left: 10),
+        padding: const EdgeInsets.only(top: 30, left: 0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(
               height: 240,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   FaveShoeCard(
                     shoeName: 'Nike Air Max',
@@ -74,9 +74,9 @@ class FavoritesPage extends StatelessWidget {
               height: 10,
             ),
             SizedBox(
-              height: 240,
+              height: 220,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   FaveShoeCard(
                     shoeName: 'Nike Jordan',

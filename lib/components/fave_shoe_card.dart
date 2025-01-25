@@ -45,7 +45,7 @@ class _FaveShoeCardState extends State<FaveShoeCard> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 8, top: 12),
+                padding: const EdgeInsets.only(left: 2.0, right: 8, top: 12),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [

@@ -1,3 +1,6 @@
+// ignore_for_file: dead_code
+
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:ui/components/icon.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,16 +15,19 @@ class Sneakershop extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        leading: Container(
-          margin: const EdgeInsets.only(left: 12),
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-          ),
-          child: IconButton(
-            iconSize: 30,
-            onPressed: () {},
-            icon: const Icon(Icons.chevron_left),
+        leading: GestureDetector(
+          onTap: () => Navigator.pop(context),
+          child: Container(
+            margin: const EdgeInsets.only(left: 12),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+            ),
+            child: IconButton(
+              iconSize: 30,
+              onPressed: () {},
+              icon: const Icon(Icons.chevron_left),
+            ),
           ),
         ),
         title: Stack(
@@ -112,7 +118,7 @@ class Sneakershop extends StatelessWidget {
                       Positioned(
                         bottom: -10,
                         width: 300,
-                        left: 40,
+                        left: 30,
                         child: Image.asset(
                           'assets/images/slider.png',
                         ),
@@ -134,16 +140,59 @@ class Sneakershop extends StatelessWidget {
                         margin: const EdgeInsets.symmetric(horizontal: 8),
                         height: 70,
                         width: 68,
+                        padding: const EdgeInsets.all(8),
                         decoration: BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(20),
                         ),
+                        child: Image.asset('assets/images/shoe.png'),
                       );
                     },
                   ),
                 )
               ],
-            )
+            ),
+            StatefulBuilder(
+              builder: (BuildContext context, StateSetter setState) {
+                bool isExpanded = false;
+                return Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 10),
+                      Text.rich(
+                        TextSpan(
+                          text: isExpanded
+                              ? 'The Nike Air Max 270 Essential is a stylish and comfortable shoe designed for everyday wear. It features a breathable mesh upper, a large Max Air unit in the heel for cushioning, and a durable rubber outsole for traction. '
+                              : '${'The Nike Air Max 270 Essential is a stylish and comfortable shoe designed for everyday wear. It features a breathable mesh upper, a large Max Air unit in the heel for cushioning, and a durable rubber outsole for traction. '.substring(0, 100)}...',
+                          style: GoogleFonts.raleway(
+                            fontSize: 16,
+                            color: Colors.grey.shade600,
+                          ),
+                          children: [
+                            TextSpan(
+                              text: isExpanded ? ' Show less' : ' Read more',
+                              style: GoogleFonts.raleway(
+                                fontSize: 16,
+                                color: Colors.blue,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  setState(() {
+                                    isExpanded = !isExpanded;
+                                  });
+                                },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ),
