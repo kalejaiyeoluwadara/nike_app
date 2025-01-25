@@ -17,7 +17,6 @@ class _NavBarHandlerState extends State<NavBarHandler> {
   final List<Widget> _pages = [
     const HomePage(),
     const FavoritesPage(),
-    const Center(child: Text('Bag Page')),
     const NotificationsPage(),
     ProfilePage()
   ];
@@ -46,10 +45,6 @@ class _NavBarHandlerState extends State<NavBarHandler> {
           BottomNavigationBarItem(
             icon: Icon(Icons.favorite),
             label: 'Favorites',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_bag),
-            label: 'Bag',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.notifications),

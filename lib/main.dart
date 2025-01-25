@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui/hidden_drawer.dart';
 import 'package:ui/pages/SneakerShop.dart';
 import 'package:ui/pages/favorites_page.dart';
 import 'package:ui/pages/home_page.dart';

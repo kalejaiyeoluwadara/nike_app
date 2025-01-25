@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ui/components/fave_shoe_card.dart';
+import 'package:ui/components/icon.dart';
 
 class FavoritesPage extends StatelessWidget {
   const FavoritesPage({super.key});
@@ -50,7 +51,7 @@ class FavoritesPage extends StatelessWidget {
               shape: BoxShape.circle,
             ),
             child: IconButton(
-              icon: const Icon(Icons.favorite, color: Colors.red),
+              icon: const CustomIcon(assetName: 'assets/images/heart.svg'),
               onPressed: () {},
             ),
           ),
