@@ -8,8 +8,8 @@ class SearchBarP extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(12),
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 30),
+      margin: const EdgeInsets.all(2),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
       ),
